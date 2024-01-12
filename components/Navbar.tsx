@@ -5,6 +5,7 @@ import React from "react";
 import Button from "./Button";
 
 // #1D1F60 color principal
+//update
 
 const Navbar = () => {
   return (
