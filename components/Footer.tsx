@@ -12,7 +12,7 @@ const Footer = () => {
           <FooterColumn>
             <ul className="regular-14 flex gap-4 text-gray-30">
               <p className="regular-14 w-full text-center text-gray-30">
-                2023 Uniformes Bertha | All rights reserved
+                2024 Uniformes Bertha | All rights reserved
               </p>
               {SOCIALS.links.map((link) => (
                 <Link href="/" key={link}>

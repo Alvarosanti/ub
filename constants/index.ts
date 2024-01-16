@@ -1,8 +1,8 @@
 // NAVIGATION
 export const NAV_LINKS = [
-  { href: '/', key: 'home', label: 'Inicial' },
-  { href: '/', key: 'how_hilink_work', label: 'Primaria' },
-  { href: '/', key: 'services', label: 'Secundaria' },
+  { href: '#categories', key: 'categories', label: 'Categorias' },
+  { href: '#promotions', key: 'promotions', label: 'Promociones' },
+  { href: '#comments', key: 'comments', label: 'Comentarios' },
 ];
 
 // CAMP SECTION
@@ -81,3 +81,54 @@ export const SOCIALS = {
     '/youtube.svg',
   ],
 };
+
+export const testimonials = [
+  {
+    testimonial:
+      "...",
+    name: "Sara Lee",
+    designation: "CTO",
+    company: "Acme Co",
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
+  },
+  {
+    testimonial:
+      "...",
+    name: "Chris Brown",
+    designation: "CEO",
+    company: "DEF Corp",
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
+  },
+  {
+    testimonial:
+      "...",
+    name: "Lisa Wang",
+    designation: "TPO",
+    company: "456 Enterprises",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+  },
+  {
+    testimonial:
+      "...",
+    name: "Sara Lee",
+    designation: "CTO",
+    company: "Acme Co",
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
+  },
+  {
+    testimonial:
+      "...",
+    name: "Chris Brown",
+    designation: "CEO",
+    company: "DEF Corp",
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
+  },
+  {
+    testimonial:
+      "...",
+    name: "Lisa Wang",
+    designation: "TPO",
+    company: "456 Enterprises",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+  }
+];
