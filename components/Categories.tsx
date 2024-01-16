@@ -1,6 +1,8 @@
+'use client'
 import { PEOPLE_URL } from "@/constants";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface CategorieProps {
   backgroundImage: string;
@@ -17,7 +19,7 @@ const Categorie = ({
 }: CategorieProps) => {
   return (
     <div
-    id="categories"
+      id="categories"
       className={`h-full w-full min-w-[400px] ${backgroundImage} bg-cover bg-no-repeat lg:rounded-r-5xl 2xl:rounded-5xl`}
     >
       <div className="flex h-full flex-col items-start justify-between p-6 lg:px-20 lg:py-10">
@@ -45,28 +47,44 @@ const Categorie = ({
 
 const Categories = () => {
   return (
-    <section className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20">
-      <div className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[540px]">
-        <Categorie
-          backgroundImage="bg-bg-img-1"
-          title="Inicial"
-          subtitle="De 3 a 5 anios"
-          peopleVisited="+20 visited"
-        />
-        <Categorie
-          backgroundImage="bg-bg-img-2"
-          title="Primaria"
-          subtitle="De 1ero a 6to"
-          peopleVisited="+32 visited"
-        />
-        <Categorie
-          backgroundImage="bg-bg-img-1"
-          title="Secundaria"
-          subtitle="De 1ero a 5to"
-          peopleVisited="+50 visited"
-        />
-      </div>
-    </section>
+    <motion.section
+      id="categories"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
+    >
+      <section className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20">
+        <div className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[540px]">
+          <Categorie
+            backgroundImage="bg-bg-img-1"
+            title="Inicial"
+            subtitle="De 3 a 5 anios"
+            peopleVisited="+20 visited"
+          />
+          <Categorie
+            backgroundImage="bg-bg-img-2"
+            title="Primaria"
+            subtitle="De 1ero a 6to"
+            peopleVisited="+32 visited"
+          />
+          <Categorie
+            backgroundImage="bg-bg-img-1"
+            title="Secundaria"
+            subtitle="De 1ero a 5to"
+            peopleVisited="+50 visited"
+          />
+        </div>
+      </section>
+    </motion.section>
   );
 };
 

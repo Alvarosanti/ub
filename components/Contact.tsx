@@ -94,103 +94,6 @@ const Contact = () => {
   };
 
   return (
-    // <motion.section
-    //   id="contact"
-    //   initial={{
-    //     opacity: 0,
-    //   }}
-    //   whileInView={{
-    //     opacity: 1,
-    //   }}
-    //   transition={{
-    //     duration: 1,
-    //   }}
-    //   viewport={{
-    //     once: true,
-    //   }}
-    // >
-    //   <section className="flex w-full min-h-screen justify-center items-center">
-    //     <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-slate-900 w-full max-w-6xl p-8 sm:p-8 rounded-2xl shadow-lg text-white">
-    //       <div className="flex flex-col space-y-2 justify-between">
-    //         <div>
-    //           <h3 className={styles.sectionHeadText}>Contacto.</h3>
-    //           {/* <p className={styles.sectionSubText}>
-    //               Ponte en contacto con nosotros
-    //             </p> */}
-    //           <p className="pt-2 text-cyan-100">
-    //             Dejanos un comentario o ponte en contacto con nosotros via email
-    //             o whatsapp :)
-    //           </p>
-    //         </div>
-    //         <div className="flex flex-col space-y-12">
-    //           <div className="space-x-2">
-    //             <span>+51 987654321</span>
-    //           </div>
-    //           <div className="space-x-2">
-    //             <span>Av. lorem Ipsun 123</span>
-    //           </div>
-    //           <div className="inline-flex space-x-2">
-    //             <span>+51 987654321</span>
-    //           </div>
-    //         </div>
-    //         {/* <div className="flex space-x-4 text-lg">
-    //           <a href="#">Facebook</a>
-    //           <a href="#">Twitter</a>
-    //           <a href="#">Instagram</a>
-    //         </div> */}
-    //       </div>
-    //       <div>
-    //         <div className="rounded-xl shadow-inner p-16 md:w-90">
-    //           <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-    //             <label className="flex flex-col">
-    //               <span className="text-white font-medium mb-4">Nombre</span>
-    //               <input
-    //                 type="text"
-    //                 name="name"
-    //                 value={form.name}
-    //                 onChange={handleChange}
-    //                 placeholder="Cual es tu nombre?"
-    //                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
-    //                 required
-    //               />
-    //             </label>
-    //             <label className="flex flex-col">
-    //               <span className="text-white font-medium mb-4">Correo</span>
-    //               <input
-    //                 type="email"
-    //                 name="email"
-    //                 value={form.email}
-    //                 onChange={handleChange}
-    //                 placeholder="Cual es tu correo?"
-    //                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
-    //                 required
-    //               />
-    //             </label>
-    //             <label className="flex flex-col">
-    //               <span className="text-white font-medium mb-4">Mensaje</span>
-    //               <textarea
-    //                 rows={7}
-    //                 name="message"
-    //                 value={form.message}
-    //                 onChange={handleChange}
-    //                 placeholder="Dejanos un comentario"
-    //                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
-    //                 required
-    //               />
-    //             </label>
-    //             <button
-    //               type="submit"
-    //               className="bg-green-500 py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
-    //             >
-    //               {loading ? "Enviando..." : "Enviar"}
-    //             </button>
-    //           </form>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </section>
-    //   {/* <ToastContainer /> */}
-    // </motion.section>
     <motion.section
       id="contact"
       initial={{
@@ -278,7 +181,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      // {/* <ToastContainer /> */}
+      {/* <ToastContainer /> */}
     </motion.section>
   );
 };
