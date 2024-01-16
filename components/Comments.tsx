@@ -71,37 +71,50 @@ const FeedbackCard = ({
 
 const Comments = () => {
   return (
-    <section
+    <motion.section
       id="comments"
-      className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
     >
-      <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
-        <div className="mt-12 bg-slate-900 rounded-[20px]">
-          <div
-            className={`${styles.padding} bg-gray-400 rounded-2xl min-h-[300px]`}
-          >
-            <motion.div variants={variants}>
-              <p className={styles.sectionSubText}>
-                <span className="text-[#ffffff]"> Lo que dicen sobre </span>{" "}
-                <span className="text-[#13213d]">Uniformes Bertha</span>
-              </p>
-              <h2 className={styles.sectionHeadText}>Comentarios.</h2>
-            </motion.div>
-          </div>
-          <div
-            className={`${styles.paddingX} -mt-20 pb-14 flex flex-wrap gap-7`}
-          >
-            {testimonials.map((testimonial, index) => (
-              <FeedbackCard
-                key={testimonial.name}
-                index={index}
-                {...testimonial}
-              />
-            ))}
+      <section className="max-container padding-container flex flex-col gap-20 py-24 pb-2 md:gap-28 lg:py-20 xl:flex-row">
+        <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
+          <div className="mt-12 bg-slate-900 rounded-[20px]">
+            <div
+              className={`${styles.padding} bg-gray-400 rounded-2xl min-h-[300px]`}
+            >
+              <motion.div variants={variants}>
+                <p className={styles.sectionSubText}>
+                  <span className="text-[#ffffff]"> Lo que dicen sobre </span>{" "}
+                  <span className="text-[#13213d]">Uniformes Bertha</span>
+                </p>
+                <h2 className={styles.sectionHeadText}>Comentarios.</h2>
+              </motion.div>
+            </div>
+            <div
+              className={`${styles.paddingX} -mt-20 pb-14 flex flex-wrap gap-7`}
+            >
+              {testimonials.map((testimonial, index) => (
+                <FeedbackCard
+                  key={testimonial.name}
+                  index={index}
+                  {...testimonial}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </motion.section>
   );
 };
 

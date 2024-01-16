@@ -38,21 +38,33 @@ const Hero = () => {
                 />
               ))}
           </div>
-          <p className="bold-16 lg:bold-20 text-blue-70">
-            +50
-            <span className="regular-16 lg:regular-20 ml-1 underline">
-              Comentarios excelentes
-            </span>
-          </p>
+          <a href="#comments">
+            <p className="bold-16 lg:bold-20 text-blue-70">
+              +50
+              <span className="regular-16 lg:regular-20 ml-1 underline">
+                Comentarios excelentes
+              </span>
+            </p>
+          </a>
         </div>
         <div className="flex flex-col w-full gap-3 sm:flex-row">
-          <Button type="button" title="Ir a comprar" variant="btn_dark_green" />
-          <Button
-            type="button"
-            title="Ver promociones"
-            icon="/play.svg"
-            variant="btn_white_text"
-          />
+          <a href="#categories">
+            <Button
+              type="button"
+              title="Ir a comprar"
+              variant="btn_dark_green"
+              full
+            />
+          </a>
+          <a href="#promotions">
+            <Button
+              type="button"
+              title="Ver promociones"
+              icon="/play.svg"
+              variant="btn_white_text"
+              full
+            />
+          </a>
         </div>
       </div>
       <div className="relative flex flex-1 items-start">

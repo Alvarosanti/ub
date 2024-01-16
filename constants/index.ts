@@ -115,20 +115,4 @@ export const testimonials = [
     company: "Acme Co",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
-  {
-    testimonial:
-      "...",
-    name: "Chris Brown",
-    designation: "CEO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "...",
-    name: "Lisa Wang",
-    designation: "TPO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  }
 ];

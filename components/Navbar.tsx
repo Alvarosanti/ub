@@ -25,12 +25,15 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="lg:flexCenter hidden">
-        <Button
-          type="button"
-          title="Me gusta la pagina!"
-          icon="/"
-          variant="btn_dark_green"
-        />
+        <a href="#contact">
+          <Button
+            type="button"
+            title="Me gusta la pagina!"
+            icon="/"
+            variant="btn_dark_green"
+            full
+          />
+        </a>
       </div>
       <Image
         src="menu.svg"
