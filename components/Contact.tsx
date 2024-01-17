@@ -136,7 +136,7 @@ const Contact = () => {
                         required
                       />
                     </label>
-                    <label className="flex flex-col">
+                    {/* <label className="flex flex-col">
                       <span className="text-white font-medium mb-4">
                         Correo
                       </span>
@@ -149,7 +149,7 @@ const Contact = () => {
                         className="bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
                         required
                       />
-                    </label>
+                    </label> */}
                     <label className="flex flex-col">
                       <span className="text-white font-medium mb-4">
                         Mensaje
