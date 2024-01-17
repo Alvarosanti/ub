@@ -4,12 +4,14 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface CategorieProps {
   backgroundImage: string;
   title: string;
   subtitle: string;
   peopleVisited: string;
+  url: string;
 }
 
 const Categorie = ({
@@ -17,10 +19,13 @@ const Categorie = ({
   title,
   subtitle,
   peopleVisited,
+  url,
 }: CategorieProps) => {
+  const router = useRouter();
+
   return (
     <Link
-      href="/products"
+      href={url}
       id="categories"
       className={`h-full w-full min-w-[400px] ${backgroundImage} bg-cover bg-no-repeat lg:rounded-r-5xl 2xl:rounded-5xl`}
     >
@@ -72,18 +77,21 @@ const Categories = () => {
             title="Inicial"
             subtitle="De 3 a 5 anios"
             peopleVisited="+20 visited"
+            url="/products?categories=inicial"
           />
           <Categorie
             backgroundImage="bg-bg-img-2"
             title="Primaria"
             subtitle="De 1ero a 6to"
             peopleVisited="+32 visited"
+            url="/products?categories=primaria"
           />
           <Categorie
             backgroundImage="bg-bg-img-1"
             title="Secundaria"
             subtitle="De 1ero a 5to"
             peopleVisited="+50 visited"
+            url="/products?categories=secundaria"
           />
         </div>
       </section>

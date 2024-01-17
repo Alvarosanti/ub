@@ -64,7 +64,7 @@ const Navbar = () => {
                   // setActive(nav.label);
                 }}
               >
-                <a href={`#${nav.key}`}>{nav.label}</a>
+                <a href={`/#${nav.key}`}>{nav.label}</a>
               </li>
             ))}
           </ul>
