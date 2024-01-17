@@ -1,8 +1,9 @@
-'use client'
+"use client";
 import { PEOPLE_URL } from "@/constants";
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface CategorieProps {
   backgroundImage: string;
@@ -18,7 +19,8 @@ const Categorie = ({
   peopleVisited,
 }: CategorieProps) => {
   return (
-    <div
+    <Link
+      href="/products"
       id="categories"
       className={`h-full w-full min-w-[400px] ${backgroundImage} bg-cover bg-no-repeat lg:rounded-r-5xl 2xl:rounded-5xl`}
     >
@@ -41,7 +43,7 @@ const Categorie = ({
           <p className="bold-16 md:bold-20 text-white">{peopleVisited}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -63,6 +65,7 @@ const Categories = () => {
       }}
     >
       <section className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20">
+        <h2 className="bold-40 lg:bold-64 py-6">Categorias</h2>
         <div className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[540px]">
           <Categorie
             backgroundImage="bg-bg-img-1"

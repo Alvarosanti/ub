@@ -1,8 +1,8 @@
 // NAVIGATION
 export const NAV_LINKS = [
-  { href: '#categories', key: 'categories', label: 'Categorias' },
-  { href: '#promotions', key: 'promotions', label: 'Promociones' },
-  { href: '#comments', key: 'comments', label: 'Comentarios' },
+  { href: '/#categories', key: 'categories', label: 'Categorias' },
+  { href: '/#promotions', key: 'promotions', label: 'Promociones' },
+  { href: '/#comments', key: 'comments', label: 'Comentarios' },
 ];
 
 // CAMP SECTION
