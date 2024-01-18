@@ -21,12 +21,12 @@ const filterOptions = [
     options: categories,
     type: "radio",
   },
-  {
-    id: "sizes",
-    title: "Talla",
-    options: sizes,
-    type: "checkbox",
-  },
+  // {
+  //   id: "sizes",
+  //   title: "Talla",
+  //   options: sizes,
+  //   type: "checkbox",
+  // },
 ];
 
 function checkValidQuery(queries: string[]) {

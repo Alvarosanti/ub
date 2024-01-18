@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { products } from "../../../../constants/products";
+import { promotions } from "../../../../constants/products";
 import { useEffect, useState } from "react";
 
 interface Product {
@@ -23,13 +23,13 @@ const page: React.FC = () => {
     return <div>Error: falta param de la url</div>;
   }
 
-  const product = products.find((u) => u.id.toString() === id);
+  const product = promotions.find((u) => u.id.toString() === id);
 
   if (!product) {
     // Manejo de error si el usuario no se encuentra
     return (
       <div>
-        <h1>Usuario no encontrado</h1>
+        <h1>Producto no encontrado</h1>
       </div>
     );
   }
@@ -38,7 +38,7 @@ const page: React.FC = () => {
     <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
       <div className="mx-auto max-w-[1000px] padding-container relative w-auto flex justify-end">
         <div className="lg:flex -mx-2">
-          <div className="mb-8 px-6 md:mb-0 lg:min-w-1/2">
+          <div className="mb-8 px-6 md:mb-0 lg:w-1/2">
             <div className="w-full overflow-hidden relative bg-gainsboro rounded-lg">
               <Image
                 src={product.image}
@@ -62,7 +62,7 @@ const page: React.FC = () => {
               <p className="leading-loose text-lightgray">{product.desc}</p>
             </div>
             <div className="md:flex md:flex-wrap -mx-3">
-              {products.length > 1 ? (
+              {promotions.length > 1 ? (
                 <div className="md:w-3/4 px-3 mb-6">
                   <label
                     className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"

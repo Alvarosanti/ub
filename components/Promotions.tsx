@@ -62,9 +62,9 @@ const Promotions = () => {
       <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
         <h2 className="bold-40 lg:bold-64 pb-16">Promociones</h2>
         <div className="mx-auto max-w-[1000px] padding-container relative w-auto flex justify-end">
-          <Link href="/products/detail">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-              {promotions.map((product) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            {promotions.map((product) => (
+              <Link href={`/products/promotion/${product.id}`}>
                 <div key={product.id}>
                   <Image
                     src={product.image}
@@ -91,9 +91,9 @@ const Promotions = () => {
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </Link>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </motion.section>

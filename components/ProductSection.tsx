@@ -43,13 +43,17 @@ export function ProductSection() {
     filteredProducts = products;
   }
   if (filteredProducts.length === 0) {
-    return <p className="text-center text-slate-700">No hay productos disponibles :(</p>;
+    return (
+      <p className="text-center text-slate-700">
+        No hay productos disponibles :(
+      </p>
+    );
   }
 
   return (
-    <Link href="/products/detail">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-        {filteredProducts.map((product) => (
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+      {filteredProducts.map((product) => (
+        <Link href={`/products/detail/${product.id}`} key={product.id}>
           <div key={product.id}>
             <Image
               src={product.image}
@@ -74,9 +78,9 @@ export function ProductSection() {
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </Link>
+        </Link>
+      ))}
+    </div>
   );
 }
 export default ProductSection;
