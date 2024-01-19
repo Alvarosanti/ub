@@ -156,7 +156,7 @@ const page: React.FC = () => {
               ) : (
                 <a
                   onClick={setPath}
-                  href={`https://wa.me/987654321?text=Hola que tal, quiero comprar el producto: ${product.title} cuesta S/.${product.price} c/u, quiero ${cantidad} unidades, en talla ${talla}.`}
+                  href={`https://wa.me/+51902356831?text=Hola que tal, quiero comprar el producto: ${product.title} cuesta S/.${product.price} c/u, quiero ${cantidad} unidades, en talla ${talla}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded inline-block"
