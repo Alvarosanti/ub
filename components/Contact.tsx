@@ -69,9 +69,9 @@ const Contact = () => {
 
         {
           from_name: form.name,
-          to_name: "DALSEB ENERGY",
+          to_name: "UNIFORMES BERTHA",
           from_email: form.email,
-          to_email: "alvaroportfoliomail.com",
+          to_email: "uniformes.sulca@gmail.com",
           message: form.message,
         },
         // import.meta.env.VITE_VERCEL_PUBLIC_KEY
