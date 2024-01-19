@@ -76,7 +76,7 @@ const Contact = () => {
         },
         // import.meta.env.VITE_VERCEL_PUBLIC_KEY
         // env.VERCEL_PUBLIC_KEY
-        process.env.VERCEL_PUBLIC_KEY as string
+        process.env.VERCEL_PUBLIC_KEY
       )
       .then(
         () => {
