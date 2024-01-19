@@ -61,11 +61,11 @@ const Contact = () => {
       .send(
         // import.meta.env.VITE_VERCEL_SERVICE_ID,
         // env.VERCEL_SERVICE_ID,
-        process.env.NEXT_PUBLIC_KEY_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_SERVICE_ID as string,
 
         // import.meta.env.VITE_VERCEL_TEMPLATE_ID,
         // env.VERCEL_TEMPLATE_ID,
-        process.env.NEXT_PUBLIC_KEY_TEMPLATE_ID as string,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
 
         {
           from_name: form.name,
