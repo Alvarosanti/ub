@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { styles } from "../app/styles";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import env from "@/env";
 import Button from "./Button";
 import Image from "next/image";
@@ -18,15 +18,15 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const notifySuccess = () => {
-    toast.success("Gracias por contactarnos, nos comunicaremos pronto!", {
-      position: "bottom-center",
-      autoClose: 5000,
+    toast.success("Gracias por tu comentario :)", {
+      position: "top-center",
+      autoClose: 6000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: "colored",
     });
   };
 
@@ -60,12 +60,12 @@ const Contact = () => {
     emailjs
       .send(
         // import.meta.env.VITE_VERCEL_SERVICE_ID,
-        // env.VERCEL_SERVICE_ID,
-        process.env.NEXT_PUBLIC_SERVICE_ID as string,
+        env.VERCEL_SERVICE_ID,
+        // process.env.NEXT_PUBLIC_SERVICE_ID as string,
 
         // import.meta.env.VITE_VERCEL_TEMPLATE_ID,
-        // env.VERCEL_TEMPLATE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
+        env.VERCEL_TEMPLATE_ID,
+        // process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
 
         {
           from_name: form.name,
@@ -75,8 +75,8 @@ const Contact = () => {
           message: form.message,
         },
         // import.meta.env.VITE_VERCEL_PUBLIC_KEY
-        // env.VERCEL_PUBLIC_KEY
-        process.env.NEXT_PUBLIC_KEY
+        env.VERCEL_PUBLIC_KEY
+        // process.env.NEXT_PUBLIC_KEY
       )
       .then(
         () => {
@@ -139,20 +139,6 @@ const Contact = () => {
                         required
                       />
                     </label>
-                    {/* <label className="flex flex-col">
-                      <span className="text-white font-medium mb-4">
-                        Correo
-                      </span>
-                      <input
-                        type="email"
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="Cual es tu correo?"
-                        className="bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
-                        required
-                      />
-                    </label> */}
                     <label className="flex flex-col">
                       <span className="text-white font-medium mb-4">
                         Mensaje
@@ -184,7 +170,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      {/* <ToastContainer /> */}
     </motion.section>
   );
 };

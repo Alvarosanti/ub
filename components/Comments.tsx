@@ -9,8 +9,6 @@ type CardFeedback = {
   index: number;
   testimonial: string;
   name: string;
-  designation: string;
-  company: string;
   image: string;
 };
 
@@ -38,8 +36,6 @@ const FeedbackCard = ({
   index,
   testimonial,
   name,
-  designation,
-  company,
   image,
 }: CardFeedback) => (
   <motion.div
@@ -54,9 +50,6 @@ const FeedbackCard = ({
           <p className="text-black font-medium text-[16px]">
             <span className="blue-text-gradient">@</span>
             {name}
-          </p>
-          <p className="mt-1 text-secondary text-[12px]">
-            {designation} of {company}
           </p>
         </div>
         <img

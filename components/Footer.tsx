@@ -1,9 +1,13 @@
-import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from "@/constants";
+"use client";
+import { SOCIALS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <footer className="flexCenter mb-24">
       <div className="padding-container max-container flex w-full flex-col gap-14">
@@ -14,15 +18,21 @@ const Footer = () => {
               <p className="regular-14 w-full text-center text-gray-30">
                 2024 Uniformes Bertha | All rights reserved
               </p>
-              {SOCIALS.links.map((link) => (
-                <Link href="/" key={link}>
-                  <Image src={link} alt="logo" width={24} height={24} />
+              {SOCIALS.links.map((e) => (
+                <Link href={e.link} key={e.src}>
+                  <Image src={e.src} alt="logo" width={24} height={24} />
                 </Link>
               ))}
             </ul>
           </FooterColumn>
         </div>
       </div>
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-4 right-4 bg-blue-50 text-white px-4 py-3 rounded-5xl focus:outline-none focus:shadow-outline-blue active:bg-blue-40000 z-50"
+      >
+        <Image src="/top.svg" alt="top" width={40} height={40} />
+      </button>
     </footer>
   );
 };
