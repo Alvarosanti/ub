@@ -4,6 +4,7 @@ import { promotions } from "../../../../constants/products";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Arrowback from "@/components/Arrowback";
 
 interface Product {
   id: number;
@@ -72,6 +73,9 @@ const page: React.FC = () => {
         once: true,
       }}
     >
+      <div className="absolute top-10 left-16">
+        <Arrowback link="/#promotions" />
+      </div>
       <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
         <div className="mx-auto max-w-[1000px] padding-container relative w-auto flex justify-end">
           <div className="lg:flex -mx-2">
