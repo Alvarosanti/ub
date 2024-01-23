@@ -50,7 +50,7 @@ const Navbar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+          } p-6 text-white absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl bg-[#1D1F60]`}
         >
           <ul className="list-none flex justify-end items-start flex-col gap-4">
             {NAV_LINKS.map((nav) => (
