@@ -118,8 +118,8 @@ const Contact = () => {
             <div className="flex w-full flex-col gap-3 whitespace-nowrap">
               <div>
                 <div className="rounded-xl shadow-inner p-16 md:w-90">
-                  <h2 className="bold-40 lg:bold-24 xl:max-w-[320px]">
-                    Contacto.
+                  <h2 className="bold-40 lg:bold-24 xl:max-w-[320px] pb-6">
+                    D&eacute;janos un comentario.
                   </h2>
                   <form
                     onSubmit={handleSubmit}
@@ -148,14 +148,14 @@ const Contact = () => {
                         name="message"
                         value={form.message}
                         onChange={handleChange}
-                        placeholder="Dejanos tu comentario"
+                        placeholder="Escribe aqui"
                         className="bg-tertiary py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
                         required
                       />
                     </label>
                     <button
                       type="submit"
-                      className="bg-green-500 py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+                      className="bg-green-600 py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
                     >
                       {loading ? "Enviando..." : "Enviar"}
                     </button>
@@ -165,8 +165,8 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex flex-1 items-center justify-end">
-            <Image src="/phones.png" alt="phones" width={550} height={870} />
+          <div className="flex flex-1 items-center justify-center">
+            <Image src="/contact.jpg" alt="phones" width={850} height={670} />
           </div>
         </div>
       </section>
