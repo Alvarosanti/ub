@@ -17,18 +17,17 @@ interface ButtonProps {
 
 const page: React.FC = () => {
   const [id, setId] = useState<string | null>(null);
-  const [talla, setTalla] = useState("");
   const [cantidad, setCantidad] = useState("");
   const [disabled, setDisable] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    if (!talla || cantidad <= "") {
+    if (cantidad <= "") {
       setDisable(true);
     } else {
       setDisable(false);
     }
-  }, [talla, cantidad]);
+  }, [cantidad]);
 
   useEffect(() => {
     // Obtener el id de la URL usando JavaScript en el cliente
@@ -103,35 +102,6 @@ const page: React.FC = () => {
                 <p className="leading-loose text-lightgray">{product.desc}</p>
               </div>
               <div className="md:flex md:flex-wrap -mx-3">
-                {promotions.length > 1 ? (
-                  <div className="md:w-3/4 px-3 mb-6">
-                    <label
-                      className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
-                      htmlFor="style"
-                    >
-                      Talla
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="talla"
-                        name="talla"
-                        value={talla}
-                        className="bg-gray-10 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray- dark:border-gray-200 placeholder-gray-100 dark:text-black dark:focus:ring-blue-300 dark:focus:border-blue-300"
-                        onChange={(e) => {
-                          setTalla(e.target.value);
-                        }}
-                        required
-                      >
-                        <option value="">Seleccionar...</option>
-                        {product.sizes.map((talla) => (
-                          <option key={talla} value={talla}>
-                            {talla}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                ) : null}
                 <div className="md:w-1/4 px-3 mb-6">
                   <label
                     className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
@@ -176,7 +146,7 @@ const page: React.FC = () => {
                 ) : (
                   <a
                     onClick={setPath}
-                    href={`https://wa.me/+51902356831?text=Hola que tal, quiero comprar el producto: ${product.title} cuesta S/.${product.price} c/u, quiero ${cantidad} unidades, en talla ${talla}.`}
+                    href={`https://wa.me/+51902356831?text=Hola que tal, quiero comprar el producto: ${product.title}, cuesta S/.${product.price} c/u, quiero ${cantidad} unidades.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded inline-block"
