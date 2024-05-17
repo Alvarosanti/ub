@@ -1,5 +1,5 @@
 "use client";
-import { NAV_LINKS } from "@/constants";
+import { NAV_LINKS,NAV_LINKS2 } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -52,7 +52,7 @@ const Navbar = () => {
           } p-6 text-white absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl bg-[#1D1F60]`}
         >
           <ul className="list-none flex justify-end items-start flex-col gap-4">
-            {NAV_LINKS.map((nav) => (
+            {NAV_LINKS2.map((nav) => (
               <li
                 key={nav.key}
                 className={

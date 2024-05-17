@@ -3,6 +3,10 @@ export const NAV_LINKS = [
   { href: '/#categories', key: 'categories', label: 'Categorias' },
   { href: '/#promotions', key: 'promotions', label: 'Promociones' },
   { href: '/#comments', key: 'comments', label: 'Comentarios' },
+];
+
+export const NAV_LINKS2 = [
+  ...NAV_LINKS,
   { href: '/#cart', key: 'cart', label: 'Carrito' },
 ];
 
