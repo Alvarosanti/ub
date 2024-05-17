@@ -1,13 +1,11 @@
 import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
-interface Product {
+export interface Product {
   id: string;
   title: string;
   desc: string;
   price: number;
-  colors: string;
-  sizes: string;
-  categories: string;
   image: string;
   createdAt: string;
 }
@@ -17,10 +15,29 @@ export type CartItem = {
 };
 
 type CartState = {
-  items: CartItem;
+  items: CartItem[];
   addItem: (product: Product) => void;
-  removeItem: (id: Product) => void;
+  removeItem: (id: string) => void;
   clearCart: () => void;
 };
 
-export const UseCart = create<CartState>();
+export const UseCart = create<CartState>()(
+  persist(
+    (set) => ({
+      items: [],
+      addItem: (product) =>
+        set((state) => {
+          return { items: [...state.items, { product }] };
+        }),
+      removeItem: (id) =>
+        set((state) => ({
+          items: state.items.filter((item) => item.product.id !== id),
+        })),
+      clearCart: () => set({ items: [] }),
+    }),
+    {
+      name: "cart-storage",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);

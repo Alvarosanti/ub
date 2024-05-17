@@ -1,15 +1,20 @@
 "use client";
-import { NAV_LINKS,NAV_LINKS2 } from "@/constants";
+import { NAV_LINKS, NAV_LINKS2 } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import Button from "./Button";
+import CartModal from "./Cart";
+
 // #1D1F60 color principal
 //update
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
   return (
     <nav className="flexBetween max-container padding-container relative z-30 py-5">
       <Link href="/">
@@ -26,17 +31,17 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-      <div className="lg:flexCenter hidden">
-        <a href="/#cart">
+      <button onClick={() => setModalOpen(true)}>
+        <div className="lg:flexCenter hidden">
           <img
-            src="cart.svg"
+            src="cartB.svg"
             alt="Girl in a jacket"
             width="30"
             height="50"
           ></img>
-        </a>
-        {`0`}
-      </div>
+          {`0`}
+        </div>
+      </button>
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <Image
           src={toggle ? "close2.svg" : "menu.svg"}
@@ -52,7 +57,7 @@ const Navbar = () => {
           } p-6 text-white absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl bg-[#1D1F60]`}
         >
           <ul className="list-none flex justify-end items-start flex-col gap-4">
-            {NAV_LINKS2.map((nav) => (
+            {NAV_LINKS.map((nav) => (
               <li
                 key={nav.key}
                 className={
@@ -65,10 +70,31 @@ const Navbar = () => {
               >
                 <a href={`/#${nav.key}`}>{nav.label}</a>
               </li>
-            ))}
+            ))}{" "}
+            <li
+              key={1}
+              className={
+                "text-secondary font-poppins font-medium cursor-pointer text-[16px]"
+              }
+              onClick={() => {
+                setModalOpen(true);
+                setToggle(false);
+              }}
+            >
+              <a className="flex">
+                <img
+                  src="cartW.svg"
+                  alt="Girl in a jacket"
+                  width="30"
+                  height="50"
+                ></img>
+                Carrito {`0`}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
+      <CartModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </nav>
   );
 };

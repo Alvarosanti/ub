@@ -5,11 +5,6 @@ export const NAV_LINKS = [
   { href: '/#comments', key: 'comments', label: 'Comentarios' },
 ];
 
-export const NAV_LINKS2 = [
-  ...NAV_LINKS,
-  { href: '/#cart', key: 'cart', label: 'Carrito' },
-];
-
 // CAMP SECTION
 export const PEOPLE_URL = [
   '/person-1.png',

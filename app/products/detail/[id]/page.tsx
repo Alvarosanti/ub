@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Arrowback from "@/components/Arrowback";
+import AddCartButton from "@/components/AddCartButton";
 
 interface Product {
   id: number;
@@ -42,6 +43,8 @@ const page: React.FC = () => {
   }
 
   const product = products.find((u) => u.id.toString() === id);
+
+  // const [products] = product;
 
   if (!product) {
     // Manejo de error si el producto no se encuentra
@@ -153,7 +156,13 @@ const page: React.FC = () => {
                   >
                     Comprar
                   </a>
-                )}
+                )}{" "}
+                <AddCartButton
+                  type="button"
+                  title="+ Agregar al carrito"
+                  full
+                  product={product}
+                />
               </div>
             </form>
           </div>
