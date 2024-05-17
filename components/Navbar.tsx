@@ -27,17 +27,16 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="lg:flexCenter hidden">
-        <a href="/#contact">
-          <Button
-            type="button"
-            title="Me gusta la pagina!"
-            icon="like.svg"
-            variant="btn_dark_green"
-            full
-          />
+        <a href="/#cart">
+          <img
+            src="cart.svg"
+            alt="Girl in a jacket"
+            width="30"
+            height="50"
+          ></img>
         </a>
+        {`0`}
       </div>
-
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <Image
           src={toggle ? "close2.svg" : "menu.svg"}
