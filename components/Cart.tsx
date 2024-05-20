@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { UseCart } from "./UseCart";
 
 interface Product {
   id: string;
@@ -9,32 +11,40 @@ interface Product {
 
 interface CartModalProps {
   isOpen: boolean;
-  //   products: Product[];
+  // products: Product[];
   onClose: () => void;
 }
 
-const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
+const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   if (!isOpen) return null;
 
+  const { items } = UseCart();
+
+  const cartTotal = items.reduce(
+    (total, { product }) => total + product.price,
+    0
+  );
+
   return (
-    <div className={`modal-overlay ${isOpen ? 'open' : ''}`}>
+    <div className={`modal-overlay ${isOpen ? "open" : ""}`}>
       <div className="modal-content">
         <h2>Shopping Cart</h2>
         <button className="close-button" onClick={onClose}>
           &times;
         </button>
-        {/* {products.length === 0 ? (
+        {items.length === 0 ? (
           <p>Your cart is empty</p>
         ) : (
           <ul>
-            {products.map((product) => (
-              <li key={product.id}>
-                {product.title} - ${product.price} x {product.quantity}
+            {items.map((product) => (
+              <li key={0}>
+                {product.product.title} - S/.{product.product.price}
               </li>
             ))}
           </ul>
-        )} */}
+        )}
       </div>
+
       <style jsx>{`
         .modal-overlay {
           position: fixed;

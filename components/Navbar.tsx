@@ -1,9 +1,10 @@
 "use client";
-import { NAV_LINKS, NAV_LINKS2 } from "@/constants";
+import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import CartModal from "./Cart";
+import { UseCart } from "./UseCart";
 
 // #1D1F60 color principal
 //update
@@ -15,6 +16,11 @@ const Navbar = () => {
   const handleCloseModal = () => {
     setModalOpen(false);
   };
+
+  const { items } = UseCart();
+
+  const itemCount = items.length;
+
   return (
     <nav className="flexBetween max-container padding-container relative z-30 py-5">
       <Link href="/">
@@ -39,7 +45,7 @@ const Navbar = () => {
             width="30"
             height="50"
           ></img>
-          {`0`}
+          {`${itemCount}`}
         </div>
       </button>
       <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -88,7 +94,7 @@ const Navbar = () => {
                   width="30"
                   height="50"
                 ></img>
-                Carrito {`0`}
+                Carrito {`${itemCount}`}
               </a>
             </li>
           </ul>
