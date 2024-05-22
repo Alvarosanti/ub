@@ -5,11 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Arrowback from "@/components/Arrowback";
-
-interface Product {
-  id: number;
-  nombre: string;
-}
+import AddCartButton from "@/components/AddCartButton";
 
 interface ButtonProps {
   onClick: () => void;
@@ -17,12 +13,12 @@ interface ButtonProps {
 
 const page: React.FC = () => {
   const [id, setId] = useState<string | null>(null);
-  const [cantidad, setCantidad] = useState("");
+  const [cantidad, setCantidad] = useState(0);
   const [disabled, setDisable] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    if (cantidad <= "") {
+    if (cantidad <= 0) {
       setDisable(true);
     } else {
       setDisable(false);
@@ -42,6 +38,8 @@ const page: React.FC = () => {
   }
 
   const product = products.find((u) => u.id.toString() === id);
+
+  // const [products] = product;
 
   if (!product) {
     // Manejo de error si el producto no se encuentra
@@ -95,7 +93,7 @@ const page: React.FC = () => {
               </h1>
               <div className="mb-6">
                 <p className="font-semibold text-2xl text-slategray">
-                  S/.{product.price}
+                  S/.{product.price.toFixed(2)}
                 </p>
               </div>
               <div className="mb-6">
@@ -116,7 +114,7 @@ const page: React.FC = () => {
                       value={cantidad}
                       className="bg-gray-10 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray- dark:border-gray-200 placeholder-gray-100 dark:text-black dark:focus:ring-blue-300 dark:focus:border-blue-300"
                       onChange={(e) => {
-                        setCantidad(e.target.value);
+                        setCantidad(Number(e.target.value));
                       }}
                       required
                     >
@@ -153,6 +151,21 @@ const page: React.FC = () => {
                   >
                     Comprar
                   </a>
+                )}{" "}
+                {disabled ? (
+                  <button
+                    type="submit"
+                    rel="noopener noreferrer"
+                    className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded inline-block"
+                  >
+                    ➕ Agregar al carrito
+                  </button>
+                ) : (
+                  <AddCartButton
+                    type="button"
+                    product={product}
+                    cantidad={cantidad}
+                  />
                 )}
               </div>
             </form>

@@ -3,12 +3,23 @@ import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import Button from "./Button";
+import CartModal from "./Cart";
+import { UseCart } from "./UseCart";
+
 // #1D1F60 color principal
 //update
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const { items } = UseCart();
+
+  const itemCount = items.length;
 
   return (
     <nav className="flexBetween max-container padding-container relative z-30 py-5">
@@ -26,18 +37,17 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-      <div className="lg:flexCenter hidden">
-        <a href="/#contact">
-          <Button
-            type="button"
-            title="Me gusta la pagina!"
-            icon="like.svg"
-            variant="btn_dark_green"
-            full
-          />
-        </a>
-      </div>
-
+      <button onClick={() => setModalOpen(true)}>
+        <div className="lg:flexCenter hidden">
+          <img
+            src="cartB.svg"
+            alt="Girl in a jacket"
+            width="30"
+            height="50"
+          ></img>
+          {`${itemCount}`}
+        </div>
+      </button>
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <Image
           src={toggle ? "close2.svg" : "menu.svg"}
@@ -66,10 +76,31 @@ const Navbar = () => {
               >
                 <a href={`/#${nav.key}`}>{nav.label}</a>
               </li>
-            ))}
+            ))}{" "}
+            <li
+              key={1}
+              className={
+                "text-secondary font-poppins font-medium cursor-pointer text-[16px]"
+              }
+              onClick={() => {
+                setModalOpen(true);
+                setToggle(false);
+              }}
+            >
+              <a className="flex">
+                <img
+                  src="cartW.svg"
+                  alt="Girl in a jacket"
+                  width="30"
+                  height="50"
+                ></img>
+                Carrito {`${itemCount}`}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
+      <CartModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </nav>
   );
 };

@@ -23,9 +23,8 @@ export function ProductSection() {
       product.categories,
       paramsObj?.categories
     );
-    const hasColors = isAvailable(product.colors, paramsObj?.colors);
     const hasSize = isAvailable(product.sizes, paramsObj?.sizes);
-    return hasSize && hasColors && hasCategories;
+    return hasSize && hasCategories;
   });
 
   filteredProducts = filteredProducts.sort((p1, p2) => {
@@ -86,11 +85,8 @@ export function ProductSection() {
                   {product.desc}
                 </p>
                 <div className="flex justify-between items-center">
-                  <p className="font-semibold">S/.{product.price}</p>
-                  {/* <p className="flex gap-2 items-center mt-2">
-                <StarIcon className="w-5 -mt-.5 text-yellow-500" />
-                <span>4.2</span>
-              </p> */}
+                  <p className="font-semibold">S/.{product.price.toFixed(2)}</p>
+              
                 </div>
               </div>
             </div>
