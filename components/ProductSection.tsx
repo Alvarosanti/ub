@@ -23,9 +23,8 @@ export function ProductSection() {
       product.categories,
       paramsObj?.categories
     );
-    const hasColors = isAvailable(product.colors, paramsObj?.colors);
     const hasSize = isAvailable(product.sizes, paramsObj?.sizes);
-    return hasSize && hasColors && hasCategories;
+    return hasSize && hasCategories;
   });
 
   filteredProducts = filteredProducts.sort((p1, p2) => {
