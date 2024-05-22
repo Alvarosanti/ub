@@ -14,7 +14,7 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   if (!isOpen) return null;
   const router = useRouter();
 
-  const { items } = UseCart();
+  const { items, clearCart } = UseCart();
 
   const cartTotal = items
     .reduce((total, { product }) => total + product.price * product.cantidad, 0)
@@ -43,6 +43,16 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
 
   const setPath = () => {
     router.push("/");
+    clearCart();
+    if (isOpen) {
+      onClose();
+    }
+  };
+  const setListProdutcs = () => {
+    router.push("/products?categories=inicial");
+    if (isOpen) {
+      onClose();
+    }
   };
 
   const productList = items.map((product) => {
@@ -73,6 +83,13 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
               className="empty-cart-image"
             />
             <p className="empty-cart-text">Carrito vacío</p>
+            <a
+              onClick={setListProdutcs}
+              className="bg-green-500 hover:bg-green-600 text-white mt-2 py-2 px-11 rounded inline-block w-full max-w-xl text-center cursor-pointer"
+              rel="noopener noreferrer"
+            >
+              {`Ir a comprar ->`}{" "}
+            </a>
           </div>
         ) : (
           <ul>
