@@ -1,6 +1,7 @@
 import { ImageIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { UseCart } from "./UseCart";
 
 interface Product {
   id: string;
@@ -14,6 +15,8 @@ interface Product {
 
 const CartItem = ({ product }: { product: Product }) => {
   const image = product.image;
+  const precio = product.price.toFixed(2);
+  const { removeItem } = UseCart();
 
   return (
     <div className="space-y-3 py-2">
@@ -39,20 +42,21 @@ const CartItem = ({ product }: { product: Product }) => {
 
           <div className="flex flex-col self-start">
             <span className="line-clamp-1 text-sm font-medium mb-1">
-              {product.title} x {product.cantidad}
+              {product.title} x {product.cantidad} unidades
             </span>
 
             <span className="line-clamp-1 text-xs capitalize text-muted-foreground">
               {product.desc}
             </span>
-
+            <span className="line-clamp-1 text-xs capitalize text-muted-foreground">
+              Precio: S/.{precio}u.
+            </span>
             <div className="mt-4 text-xs text-muted-foreground">
               <button
-                // onClick={() => removeItem(product.id)}
-                className="flex items-center gap-0.5"
+                onClick={() => removeItem(product.id)}
+                className="flex items-center gap-0.5 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:shadow-outline-blue p-0.5"
               >
-                {/* <X className="w-3 h-4" /> */}
-                Remove
+                X Eliminar
               </button>
             </div>
           </div>

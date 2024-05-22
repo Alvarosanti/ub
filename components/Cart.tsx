@@ -2,6 +2,8 @@
 import React, { useEffect } from "react";
 import { UseCart } from "./UseCart";
 import CartItem from "./CartItem";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface CartModalProps {
   isOpen: boolean;
@@ -10,13 +12,13 @@ interface CartModalProps {
 
 const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   if (!isOpen) return null;
+  const router = useRouter();
 
   const { items } = UseCart();
 
-  const cartTotal = items.reduce(
-    (total, { product }) => total + product.price,
-    0
-  );
+  const cartTotal = items
+    .reduce((total, { product }) => total + product.price * product.cantidad, 0)
+    .toFixed(2);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -39,6 +41,18 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
     }
   };
 
+  const setPath = () => {
+    router.push("/");
+  };
+
+  const productList = items.map((product) => {
+    return `${product.product.title} - Precio: S/.${product.product.price} - Cantidad: ${product.product.cantidad}u.`;
+  });
+
+  const productListString = productList.join(", ");
+  const message1 = `Hola que tal, quiero comprar este producto: ${productListString}, Precio total: S/.${cartTotal}`;
+  const message2 = `Hola que tal, quiero comprar estos productos: ${productListString}, Precio total: S/.${cartTotal}`;
+
   return (
     <div
       className={`modal-overlay ${isOpen ? "open" : ""}`}
@@ -50,7 +64,16 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
           &times;
         </button>
         {items.length === 0 ? (
-          <p>Your cart is empty</p>
+          <div className="empty-cart-container">
+            <Image
+              src={"/empty-cart.png"}
+              alt={`empty-cart`}
+              width={200}
+              height={200}
+              className="empty-cart-image"
+            />
+            <p className="empty-cart-text">Carrito vacío</p>
+          </div>
         ) : (
           <ul>
             {items.map((product) => (
@@ -60,20 +83,37 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
             ))}
           </ul>
         )}
-        <div className="space-y-1.5 text-sm">
-          <div className="flex">
-            <span className="flex-1">Shipping</span>
-            <span>Free</span>
+        {items.length === 0 ? (
+          ""
+        ) : (
+          <div>
+            <div className="space-y-1.5 text-sm">
+              <div className="flex">
+                <span className="flex-1">Env&iacute;o:</span>
+                <span>Previa coordinaci&oacute;n</span>
+              </div>
+              <div className="flex">
+                <span className="flex-1">IGV:</span>
+                <span>Incluido</span>
+              </div>
+              <div className="flex">
+                <span className="flex-1">Total:</span>
+                <strong>S/.{cartTotal}</strong>
+              </div>
+            </div>
+            <a
+              onClick={setPath}
+              href={`https://wa.me/+51902356831?text=${
+                items.length === 1 ? message1 : message2
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-500 hover:bg-green-600 text-white mt-2 py-2 px-11 rounded inline-block w-full max-w-xl text-center"
+            >
+              Comprar
+            </a>
           </div>
-          <div className="flex">
-            <span className="flex-1">Transaction Fee</span>
-            {/* <span>{formatPrice(fee)}</span> */}
-          </div>
-          <div className="flex">
-            <span className="flex-1">Total</span>
-            <span>{cartTotal}</span>
-          </div>
-        </div>
+        )}
       </div>
 
       <style jsx>{`
@@ -112,6 +152,24 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
           border: none;
           font-size: 24px;
           cursor: pointer;
+        }
+        .empty-cart-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 95%;
+        }
+        .empty-cart-image {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+        .empty-cart-text {
+          margin-top: 5px;
+          margin-left: 25px;
+          font-size: 18px;
+          color: #555;
         }
       `}</style>
     </div>
