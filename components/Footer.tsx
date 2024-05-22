@@ -29,7 +29,7 @@ const Footer = () => {
       </div>
       <button
         onClick={scrollToTop}
-        className="fixed bottom-4 right-4 bg-blue-50 text-white px-4 py-3 rounded-5xl focus:outline-none focus:shadow-outline-blue active:bg-blue-40000 z-50"
+        className="fixed bottom-4 right-4 bg-blue-50 text-white px-4 py-3 rounded-5xl focus:outline-none focus:shadow-outline-blue active:bg-blue-40000"
       >
         <Image src="/top.svg" alt="top" width={40} height={40} />
       </button>

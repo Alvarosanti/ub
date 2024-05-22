@@ -9,22 +9,25 @@ export interface Product {
   price: number;
   image: string;
   createdAt: string;
+  cantidad: number;
 }
 
 type ButtonProps = {
   type: "button" | "submit";
-  title: string;
-  full: boolean;
   product: Product;
+  cantidad?: number;
 };
 
-const AddCartButton = ({ type, title, full, product }: ButtonProps) => {
+const AddCartButton = ({
+  type,
+  product,
+  cantidad,
+}: ButtonProps) => {
   const { addItem } = UseCart();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      console.log("Producto: ", product);
       setIsSuccess(false);
     }, 2000);
     return () => clearTimeout(timeout);
@@ -33,15 +36,18 @@ const AddCartButton = ({ type, title, full, product }: ButtonProps) => {
   return (
     <button
       onClick={() => {
-        addItem(product);
+        const productWquantity = { ...product, cantidad: cantidad ?? 1 };
+        addItem(productWquantity);
         setIsSuccess(true);
       }}
       className={
-        "bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded inline-block"
+        isSuccess
+          ? "bg-green-600 text-white py-2 px-4 rounded inline-block"
+          : "bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded inline-block"
       }
       type={type}
     >
-      <p>{title}</p>
+      <p>{isSuccess ? "✅ Agregado" : "➕ Agregar al carrito"}</p>
     </button>
   );
 };

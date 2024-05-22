@@ -8,6 +8,7 @@ export const products = [
     categories: ["inicial"],
     image: "/short_buzo.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0002",
@@ -18,6 +19,7 @@ export const products = [
     categories: ["inicial"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0003",
@@ -28,6 +30,7 @@ export const products = [
     categories: ["inicial"],
     image: "/buzo.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0004",
@@ -38,6 +41,7 @@ export const products = [
     categories: ["inicial"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0005",
@@ -48,6 +52,7 @@ export const products = [
     categories: ["inicial"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0006",
@@ -58,6 +63,7 @@ export const products = [
     categories: ["inicial"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0007",
@@ -68,6 +74,7 @@ export const products = [
     categories: ["inicial"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0010",
@@ -78,6 +85,7 @@ export const products = [
     categories: ["primaria"],
     image: "/short_buzo.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0011",
@@ -88,6 +96,7 @@ export const products = [
     categories: ["primaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0012",
@@ -98,6 +107,7 @@ export const products = [
     categories: ["primaria"],
     image: "/buzo.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0013",
@@ -108,6 +118,7 @@ export const products = [
     categories: ["primaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0014",
@@ -118,6 +129,7 @@ export const products = [
     categories: ["primaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0015",
@@ -128,6 +140,7 @@ export const products = [
     categories: ["primaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0016",
@@ -138,6 +151,7 @@ export const products = [
     categories: ["primaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0017",
@@ -148,6 +162,7 @@ export const products = [
     categories: ["primaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0020",
@@ -158,6 +173,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0021",
@@ -168,6 +184,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/camisa.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0022",
@@ -178,6 +195,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/falda.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0023",
@@ -188,6 +206,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0024",
@@ -198,6 +217,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0025",
@@ -208,6 +228,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0026",
@@ -218,6 +239,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/buzo.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0027",
@@ -228,6 +250,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0028",
@@ -238,6 +261,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/short_buzo.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0029",
@@ -248,6 +272,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0030",
@@ -258,6 +283,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0031",
@@ -268,6 +294,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0032",
@@ -278,6 +305,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0033",
@@ -288,6 +316,7 @@ export const products = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
 ];
 
@@ -301,6 +330,7 @@ export const promotions = [
     categories: ["inicial"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0006",
@@ -311,6 +341,7 @@ export const promotions = [
     categories: ["secundaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
   {
     id: "0007",
@@ -321,5 +352,6 @@ export const promotions = [
     categories: ["primaria"],
     image: "/phone.png",
     createdAt: "10/12/2023",
+    cantidad: 0,
   },
 ];
