@@ -18,17 +18,15 @@ type ButtonProps = {
   cantidad?: number;
 };
 
-const AddCartButton = ({
-  type,
-  product,
-  cantidad,
-}: ButtonProps) => {
+const AddCartButton = ({ type, product, cantidad }: ButtonProps) => {
   const { addItem } = UseCart();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsSuccess(false);
+      setIsDisabled(false);
     }, 2000);
     return () => clearTimeout(timeout);
   }, [isSuccess]);
@@ -39,10 +37,12 @@ const AddCartButton = ({
         const productWquantity = { ...product, cantidad: cantidad ?? 1 };
         addItem(productWquantity);
         setIsSuccess(true);
+        setIsDisabled(true);
       }}
+      disabled={isDisabled}
       className={
         isSuccess
-          ? "bg-green-600 text-white py-2 px-4 rounded inline-block"
+          ? "bg-green-600 text-white py-2 px-4 rounded inline-block cursor-not-allowed"
           : "bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded inline-block"
       }
       type={type}
