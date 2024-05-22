@@ -91,7 +91,7 @@ const page: React.FC = () => {
               </h1>
               <div className="mb-6">
                 <p className="font-semibold text-2xl text-slategray">
-                  S/.{product.price}
+                  S/.{product.price.toFixed(2)}
                 </p>
               </div>
               <div className="mb-6">

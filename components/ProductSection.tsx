@@ -85,11 +85,8 @@ export function ProductSection() {
                   {product.desc}
                 </p>
                 <div className="flex justify-between items-center">
-                  <p className="font-semibold">S/.{product.price}</p>
-                  {/* <p className="flex gap-2 items-center mt-2">
-                <StarIcon className="w-5 -mt-.5 text-yellow-500" />
-                <span>4.2</span>
-              </p> */}
+                  <p className="font-semibold">S/.{product.price.toFixed(2)}</p>
+              
                 </div>
               </div>
             </div>

@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import Arrowback from "@/components/Arrowback";
 import AddCartButton from "@/components/AddCartButton";
 
-
 interface ButtonProps {
   onClick: () => void;
 }
@@ -94,7 +93,7 @@ const page: React.FC = () => {
               </h1>
               <div className="mb-6">
                 <p className="font-semibold text-2xl text-slategray">
-                  S/.{product.price}
+                  S/.{product.price.toFixed(2)}
                 </p>
               </div>
               <div className="mb-6">
@@ -159,7 +158,7 @@ const page: React.FC = () => {
                     rel="noopener noreferrer"
                     className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded inline-block"
                   >
-                   ➕ Agregar al carrito
+                    ➕ Agregar al carrito
                   </button>
                 ) : (
                   <AddCartButton

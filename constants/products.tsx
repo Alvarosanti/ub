@@ -3,7 +3,7 @@ export const products = [
     id: "0001",
     title: "Short deportivo",
     desc: "Lorem Ipsun lorem ipsum padf aspdasdf asdfsfsad asdfasdfasd lorem impsun",
-    price: 100,
+    price: 59.99,
     sizes: ["10", "12", "14"],
     categories: ["inicial"],
     image: "/short_buzo.png",
