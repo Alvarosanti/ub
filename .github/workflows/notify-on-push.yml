@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an <%ae>')" >> $GITHUB_ENV
           echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
-          echo "use:Usuario: ${{env.COMMIT_AUTHOR}}, subio cambioss: ${{env.COMMIT_MESSAGE}}"
+          echo "use:Usuario: ${{env.COMMIT_AUTHOR}}, subio cambios: ${{env.COMMIT_MESSAGE}}"
 
       - name: Send notification email
         run: |
