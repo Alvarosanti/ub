@@ -23,18 +23,22 @@ jobs:
         run: |
           echo "COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an <%ae>')" >> $GITHUB_ENV
           echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
-          echo "use:Usuario: ${{env.COMMIT_AUTHOR}}, subio cambioss: ${{env.COMMIT_MESSAGE}}"
+          echo "use:Usuario: ${{ env.COMMIT_AUTHOR }}, subio cambioss: ${{ env.COMMIT_MESSAGE }}"
+
+      - name: Get detail user
+        run: |
+          echo "Usuario: ${{ env.COMMIT_AUTHOR }} subio cambios, commit: ${{ env.COMMIT_MESSAGE }}"
 
       - name: Send notification email
         run: |
           echo "Sending email notification..."
           sudo apt-get install -y ssmtp
           echo "root=postmaster" | sudo tee -a /etc/ssmtp/ssmtp.conf
-          echo "mailhub=smtp.gmail.com:587" | sudo tee -a /etc/ssmtp/ssmtp.conf
+          echo "mailhub=${{ secrets.SMTP_SERVER }}:${{ secrets.SMTP_PORT }}" | sudo tee -a /etc/ssmtp/ssmtp.conf
           echo "AuthUser=${{ secrets.SMTP_USERNAME }}" | sudo tee -a /etc/ssmtp/ssmtp.conf
           echo "AuthPass=${{ secrets.SMTP_PASSWORD }}" | sudo tee -a /etc/ssmtp/ssmtp.conf
           echo "UseTLS=YES" | sudo tee -a /etc/ssmtp/ssmtp.conf
           echo "UseSTARTTLS=YES" | sudo tee -a /etc/ssmtp/ssmtp.conf
           echo "FromLineOverride=YES" | sudo tee -a /etc/ssmtp/ssmtp.conf
-                
+
           echo -e "To: ${{ secrets.EMAIL_TO }}\nSubject: New Push to ${{ github.ref_name }}\n\nCommit by: ${{ env.COMMIT_AUTHOR }}\nMessage: ${{ env.COMMIT_MESSAGE }}" | ssmtp ${{ secrets.EMAIL_TO }}
