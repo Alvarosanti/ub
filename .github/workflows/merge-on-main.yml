@@ -2,7 +2,8 @@ name: merge on main
 
 on:
   pull_request:
-    branches: [uat]
+    branches:
+      - uat
     types: [opened, reopened]
 
 jobs:
