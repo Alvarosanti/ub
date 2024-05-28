@@ -81,8 +81,8 @@ jobs:
       - name: Merge to development branch
         if: ${{ success() }}
         run: |
-          git config --global user.email "${{secrets.GLOB_USEREMAIL}}"
-          git config --global user.name "${{secrets.GLOB_USERNAME}}" 
+          git config --global user.email "alvarosantisteban56@gmail.com"
+          git config --global user.name "Alvarosanti" 
           #Using -m "mesage" on merge command ins mandatori here in order to avoid open a text editor to write a commit message
           git merge --no-ff --verbose origin/${{ github.event.pull_request.head.ref }} -m "Merge pull request #${{ github.event.number }}"
 
