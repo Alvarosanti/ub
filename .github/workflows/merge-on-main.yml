@@ -3,8 +3,8 @@ name: merge on main
 on:
   pull_request:
     branches:
-      - uat
-    types: [opened, reopened]
+      - main
+    types: [opened, reopened,synchronize]
 
 jobs:
   build-notify-on-merge:
