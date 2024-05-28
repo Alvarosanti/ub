@@ -49,4 +49,3 @@ jobs:
           echo "FromLineOverride=YES" | sudo tee -a /etc/ssmtp/ssmtp.conf
 
           echo -e "To: ${{ secrets.EMAIL_TO }}\nSubject: New Push to ${{ github.ref_name }}\n\nCommit by: ${{ env.COMMIT_AUTHOR }}\nMessage: ${{ env.COMMIT_MESSAGE }}" | ssmtp ${{ secrets.EMAIL_TO }}
-          
